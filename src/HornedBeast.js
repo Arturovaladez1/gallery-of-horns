@@ -1,7 +1,6 @@
 import React from 'react';
 import './Main.css';
 import Card from 'react-bootstrap/Card';
-import { Badge } from 'react-bootstrap';
 
 class HornedBeast extends React.Component {
   constructor(props) {
@@ -14,25 +13,32 @@ class HornedBeast extends React.Component {
   handleLikes = () => {
     this.setState({
       likes: this.state.likes + 1,
-    })
+    });
+  }
+
+  handleHornedBeastClick = () => {
+    this.props.handleOpenModal(this.props.title, this.props.imageurl, this.props.description);
   }
 
   render() {
-    console.log(this.props);
+
 
     return (
-      <article>
-        <card>
-          <h2>{this.props.title}</h2>
-          <p>👍{this.state.likes} <Badge bg="danger"></Badge>likes</p>
-          <Card.Img onClick={this.handleLikes} variant="top" src={this.props.imageUrl} alt={this.props.description} title={this.props.title} />
+      <>
+        <Card style={{ width: '18rem' }}>
+          < Card.Img onClick={this.handleHornedBeastClick} variant="top" src={this.props.imageUrl} alt={this.props.description}/>
+          <Card.Title>{this.props.title}</Card.Title>
           <Card.Body>
+            <Card.Text onClick={this.handleLikes}>
+              {/* not sure if this is right!!! */}
+              ❤️{this.state.likes} 
+            </Card.Text>
             <Card.Text>
               {this.props.description}
             </Card.Text>
           </Card.Body>
-        </card>
-      </article>
+        </Card>
+      </>
     )
   };
 }

@@ -7,10 +7,8 @@ blah blah blah
 ## Author: Arturo C Valadez
 
 ### Links to resources
-[]()
 
 ### Lighthouse Accessibility Report Score
-[]()
 
 ### Reflections and Comments
 
@@ -40,6 +38,16 @@ Estimate of time needed to complete: 1 hour.
 
 Start time: 8:40pm
 
-Finish time: 
+Finish time: 11:00pm
+
+Actual time needed to complete: 3 hours
+
+- Number and name of feature: 1 Display a Modal
+
+Estimate of time needed to complete: 1 hour.
+
+Start time: 5:35pm
+
+Finish time: :00pm
 
 Actual time needed to complete:  hours

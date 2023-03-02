@@ -4,16 +4,15 @@ import './Main.css';
 
 
 class Main extends React.Component {
-
   render() {
-    console.log(this.props.data);
-    let horns = [];
-    this.props.data.forEach((horn, idx) => {
-      horns.push(
+    let horns = this.props.data.map((horn, idx) => {
+      return(
         <HornedBeast
-          title={horn.name}
-          imageUrl={horn.image_url}
+          title={horn.title}
+          image_url={horn.image_url}
           description={horn.description}
+          addImages={this.props.addImages}
+          handleOpenModal={this.props.handleOpenModal}
           key={idx}
         />
       )
