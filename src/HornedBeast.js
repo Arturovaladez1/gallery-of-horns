@@ -17,7 +17,8 @@ class HornedBeast extends React.Component {
   }
 
   handleHornedBeastClick = () => {
-    this.props.handleOpenModal(this.props.title, this.props.imageurl, this.props.description);
+    this.props.handleOpenModal(this.props.title, this.props.image_url, this.props.description);
+    this.handleLikes();
   }
 
   render() {
@@ -26,7 +27,7 @@ class HornedBeast extends React.Component {
     return (
       <>
         <Card style={{ width: '18rem' }}>
-          < Card.Img onClick={this.handleHornedBeastClick} variant="top" src={this.props.imageUrl} alt={this.props.description}/>
+          < Card.Img onClick={this.handleHornedBeastClick} variant="top" src={this.props.image_url} alt={this.props.description}/>
           <Card.Title>{this.props.title}</Card.Title>
           <Card.Body>
             <Card.Text onClick={this.handleLikes}>

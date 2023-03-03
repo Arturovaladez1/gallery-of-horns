@@ -3,8 +3,9 @@ import Header from './Header';
 import Main from './Main';
 import Footer from './Footer';
 import data from './data.json';
+import SelectedBeasts from './SelectedBeasts';
 import './App.css';
-import Modal from 'react-bootstrap/Modal'
+import SelectedForm from './SelectedForm';
 // import { ModalBody } from 'react-bootstrap';
 
 class App extends React.Component {
@@ -13,13 +14,12 @@ class App extends React.Component {
     this.state = {
       image_url: '',
       title: '',
-      showMOdal: false,
-      description: ''
+      showModal: false,
+      description: '',
+      rawData: data,
+      filterData: data,
     }
   }
-
-
-
 
   handleCloseModal = () => {
     this.setState({
@@ -36,29 +36,30 @@ class App extends React.Component {
     });
   }
 
+  filterData = (filteredData) => {
+    this.setState({
+      filterData: filteredData
+    });
+  }
+
   render() {
     return (
       <>
         <Header image={this.state.images} />
-        <Main data={data}
+        <SelectedForm handleFilter={this.filterData} data={this.state.rawData} />
+        <Main data={this.state.filterData}
           openModal={this.openModal}
           // addImages={this.addImages}
           handleOpenModal={this.handleOpenModal}
         />
+        <SelectedBeasts
+          showBeast={this.state.showModal}
+          hideBeast={this.handleCloseModal}
+          description={this.state.description}
+          name={this.state.title}
+          image={this.state.image_url} />
         <Footer />
-        <Modal
-          show={this.state.showModal}
-          onHide={this.handleCloseModal}>
 
-          <Modal.Header>
-            <Modal.Title>{this.state.title}</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <img src={this.state.image_url} alt={this.state.title} />
-            <p>{this.state.description}</p>
-          </Modal.Body>
-
-        </Modal>
       </>
     );
   }
