@@ -39,11 +39,11 @@ class SelectedForm extends React.Component {
     e.preventDefault();
     console.log(this.state.howToSort);
     let filteredData = this.props.data.filter(horn => {
-      if (horn.horns === this.state.howToSort) return horn;
-
+      return(horn.horns === this.state.howToSort) && horn;
     })
+
     this.props.handleFilter(filteredData);
-  }
+  };
 
   render() {
 
